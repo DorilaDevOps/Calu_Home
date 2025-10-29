@@ -59,10 +59,10 @@
 			--color_claro1:#e8d5c4;
 			--color_claro2:#e8d5c4;
 			--color_claro3:#e8d5c4;
+			--mercedes_color: #048858;
 			
 			
 			/*UNIQUES*/
-			--mercedes_color: #2bffb3;
             --color_accent: #e8d5c4;
             --bg_primary_transparent: #e3c6a83d;
             --bg_secondary_transparent: #2c2c2c57;
@@ -86,6 +86,7 @@
 			--gradient_1: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
 			--gradient_2: linear-gradient(135deg, var(--bg_primary_transparent), var(--bg_secondary_transparent));
 			 --gradient_3: linear-gradient(135deg, var(--color-quatre), var(--color-cinc));
+			 --gradient_4: linear-gradient(135deg, var(--color-primary), var(--mercedes_color));
 			            
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 			--transition1s: all 1s ease;
@@ -112,6 +113,7 @@
 			--color_claro3:#e8d5c4;
 			--color-text-dark: #adf6f7;
 			--color-text-brown: #d5bfa9;
+			--mercedes_color: #2bffb3;
 			.sun-icon {display: none;}
 			.moon-icon {display: block;}
 		}
@@ -217,6 +219,7 @@
 			text-shadow: rgb(0, 0, 0) 2px 2px 4px;
 			font-weight: 500;
 			line-height: 1.2;
+			font-size:2em;
 		}
 
         nav {
@@ -252,7 +255,7 @@
         }
 
         nav a {
-            padding: var(--space-sm);
+            padding: var(--space-xs);
             color: var(--color-text-brown);
             font-weight: 500;
             font-size: 0.95rem;
@@ -267,7 +270,7 @@
 		nav a::after {
 			content: '';
 			position: absolute;
-			bottom: 1rem;
+			bottom: .5rem;
 			left: 0;
 			width: 0;
 			height: 2px;
@@ -462,10 +465,11 @@
             border-radius: 2px;
         }
 
-        .about-grid {
-            max-width: 1000px;
+        .about_flex {
+            display: flex;
+			flex-wrap:wrap;
+            max-width: 1500px;
             margin: 0 auto;
-            display: grid;
             gap: var(--space-lg);
         }
 
@@ -476,6 +480,8 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             transition: var(--transition);
 			color:var(--color-tertiary);
+			width: 550px;
+			min-width: 300px;
         }
 
         .about-card:hover {
@@ -490,9 +496,12 @@
         }
 
         .about-card p {
-            font-size: 0.95rem;
-            line-height: 1.8;
+            font-size: 0.9rem;
+            line-height: 1.5;
         }
+		.card_1{flex:1 0 0;}
+		.card_2{flex:1 0 0;}
+		.card_3{flex:2 0 0;}
 
         body.dark-mode .about {
             background-color: #1a1a1a;
@@ -508,7 +517,7 @@
 
         /* Productos */
         .products {
-            padding: var(--space-xl) var(--space-md);
+            padding: var(--space-lg) var(--space-md);
         }
 
         .products-grid {
@@ -812,25 +821,24 @@
 			text-align: center;
 			border-top:2px solid var(--text_redSoft);
         }
-		section__header {
+		.section__header {
 			display:grid;
 			grid-template-columns:minmax(320px,1fr);
-            text-align: center;
             margin-bottom: var(--spacing-xs);
-		    color:var(--text_redSoft);
+		    color:var(--color-text-brown);
 			background: linear-gradient(1deg, var(--color-surface), var(--bg_transparent2));
 			padding: 1rem .5rem;
 	}
 	.section__title {
             font-size: var(--font-size-sm);
             font-weight: 800;
-            margin-bottom: var(--spacing-sm);
+            margin-bottom: 1rem;
 			color:var(--text_redSoft);
+            text-align: center;
         }
 
         .section__subtitle {
-            font-size: var(--font-size-base);
-            color: var(--color-text-secondary);
+            font-size: .9em;
             max-width: 600px;
             margin: 0 auto;
         }
@@ -841,7 +849,7 @@
 			align-items: center;
 			gap: 2em;
 			padding-bottom: 2em;
-			background-color: var(--gradient_1);
+			background: linear-gradient(135deg, rgba(212, 165, 116, 0.15), rgba(44, 44, 44, 0.05)); 
 		}
 		.social_link {
 			display: flex;
@@ -1020,23 +1028,26 @@
             .inicio-content h1 {
                 font-size: 2rem;
             }
-
             nav {
                 display: flex;
 				align-items: center;
                 position: static;
                 flex-direction: row;
-                gap: var(--space-lg);
+                gap: var(--space-xs);
                 box-shadow: none;
                 padding: 0;
                 background-color: transparent;
             }
+			
+			.logo_title{font-size:1.5em;}
+			
+			
 
             .nav__toggle {
                 display: none;
             }
 
-            .about-grid {
+            .about_flex {
                 grid-template-columns: 1fr 1fr;
             }
 
@@ -1059,11 +1070,32 @@
                 right: 1rem;
                 padding: 0.8rem 1rem;
             }
+			    .logo_title {
+				font-size: 2em;
+			}
+			nav a {
+				padding: var(--space-sm);
+				font-size: 1.1em;
+			}
+			nav {
+				gap: var(--space-sm);
+			}
 		 
 		 }
 
         /* Responsive - Desktop Medium (1024px) */
         @media (min-width: 1024px) {
+		    .logo_title {
+				font-size: 2.5em;
+			}
+			nav a {
+				padding: var(--space-md);
+				font-size: 1.3em;
+			}
+			nav {
+				gap: var(--space-md);
+			}
+		  
             .inicio {
                 padding: var(--space-xl) var(--space-lg);
             }
@@ -1084,14 +1116,15 @@
                 grid-template-columns: repeat(4, 1fr);
             }
 
-            .section-title {
+            .section-title, .section__title {
                 font-size: 2rem;
             }
+			.section__subtitle {font-size: 1rem;}
         }
 
         /* Responsive - Desktop Large (1280px) */
         @media (min-width: 1280px) {
-            .about-grid {
+            .about_flex {
                 grid-template-columns: repeat(3, 1fr);
             }
 
@@ -1137,7 +1170,7 @@
         </div>
     </header>
 	
-	<div class="overlay" id="overlay"></div>
+	<!-- <div class="overlay" id="overlay"></div> -->
 	
 <!-- Scroll Info Box -->
     <div class="scrollInfo" id="scrollInfo">
@@ -1154,6 +1187,7 @@
 					<img class="moon-icon" src="logos/lampara_light.png"/>
                 </button>
             <p>Creado con amor por Lu y Caro. Calidad superior y precios únicos en cada pieza.</p>
+            <p style="font-weight:700">Donde el diseño se encuentra con la calidez.</p>
             <button class="cta-button">Explorar Colección</button>
         </div>
     </section>
@@ -1161,18 +1195,24 @@
     <!-- Acerca de -->
     <section id="nosotros" class="about">
         <h2 class="section-title">Nosotros</h2>
-        <div class="about-grid">
-            <div class="about-card">
+        <div class="about_flex">
+            <div class="about-card card_1">
                 <h3>👩‍👧 Nuestra Historia</h3>
-                <p>Calu Home nace del vínculo especial entre Lu y Caro, madre e hija emprendedoras. Cada producto refleja nuestro compromiso con la excelencia y el cuidado del detalle. Somos una empresa familiar donde la pasión por la calidad es lo más importante.</p>
+                <p>Calu Home nace del vínculo especial entre Lu y Caro, madre e hija emprendedoras que unieron pasión, diseño y calidad para selecccionar textiles que transforman casas en hogares. </p>
+				<p>Cada producto refleja nuestro compromiso con la excelencia y el cuidado del detalle. Somos una empresa familiar donde la pasión por la calidad es lo más importante.</p>
             </div>
-            <div class="about-card">
-                <h3>✨ Nuestra Misión</h3>
-                <p>Ofrecemos textiles de calidad superior para transformar tu hogar en un espacio acogedor. Cada pieza es seleccionada cuidadosamente para asegurar durabilidad, confort y estilo. Tu satisfacción es nuestro éxito.</p>
+            <div class="about-card card_2">
+                <h3>✨ Nuestra Filosofía</h3>
+                <p>Cada textil que ofrecemos está pensado con cariño, elegido con cuidado y creado para acompañar momentos reales: una tarde en familia, una charla con amigos o simplemente ese instante de descanso que tanto disfrutás. </p>
+				<p>Cada pieza es seleccionada cuidadosamente para asegurar durabilidad, confort y estilo.</p>
+				<p>Tu satisfacción es nuestro éxito.</p>
             </div>
-            <div class="about-card">
+            <div class="about-card card_3">
                 <h3>🏡 Ubicación</h3>
-                <p>Vení a conocer colecciones en persona en nuestro Showroom ubicado en Villa Ballester. Podrás ver y tocar nuestros productos, y conocer personalmente a Lu y Caro. ¡Te esperamos con una taza de café!</p>
+                <p>Explora nuestra tienda y descubre nuestra colección.  </p>
+				<p>Vení a conocer colecciones en persona en nuestro Showroom ubicado en Villa Ballester. Podrás ver y tocar nuestros productos, y conocer personalmente a Lu y Caro. 
+				<br>¡Te esperamos con una taza de café!</p>
+				<p><em>* También nos encontras en los eventos más imprtantes</em></p>
             </div> 
         </div>
     </section>
@@ -1181,17 +1221,19 @@
     <section class="products" id="products">
 		<!-- gallery-->
 		<div class="section__header">
-						<h2 class="section__title">Dale un upgrade a tu guardarropa con productos 100% originales:</h2>
-						
+						<h2 class="section__title">Dale un upgrade a tu hogar con nuevos estilos y tendencias</h2>
+						<div class="section__subtitle">
+							<p>🧥 La moda cambia, pero la esencia permanece. </p>
+				
+							<p>👕 Ofrecemos una amplia variedad de opciones para que puedas encontrar lo que necesitas.</p>
 
-				<p class="section__subtitle">👕 Urban Style: ropa casual con actitud moderna.</p>
+							<p>👠 Nuestros textiles están diseñados para ser funcionales y decorativos.</p>
 
-				<p class="section__subtitle">👠 Premium Selection: prendas de diseñador y marcas de lujo.</p>
+							<p>👖 Colección de textiles de alta calida disponibles en una variedad de estilos y colores para adaptarse a cualquier decoración.</p>
 
-				<p class="section__subtitle">👖 Everyday Basics: esenciales de alta calidad para el día a día.</p>
-
-				<p class="section__subtitle">🧥 Season Picks: las mejores tendencias de cada temporada.</p>
-					</div>
+						</div>
+				
+		</div>
 		<div class="container">
 				<div class="gallery" id="gallery">
 					<!-- Las imágenes se cargarán dinámicamente -->
@@ -1235,10 +1277,8 @@
         <div class="container">
             <div class="section__header">
                 <h2 class="section__title">¿Listo para renovar tu estilo?</h2>
-                <p class="section__subtitle">La moda cambia, pero lo original se mantiene.
-					Si querés saber más, consultar talles o recibir novedades, hablá con nosotros.
-					Un mensaje puede ser el comienzo de tu próxima prenda favorita.
-				</p>
+                <p class="section__subtitle">¿Querés crear un hogar que te represente? La decoración es un arte.</p>
+				<p>	Un mensaje puede ser el comienzo de tu próximo proyecto de decoración.</p>
             </div>
 			
         </div>
@@ -1312,9 +1352,9 @@
                 <div class="footer__col">
                     <h4 class="footer__heading">Categorías</h4>
                     <ul class="footer__list">
-                        <li><a href="#">Ropa Hombre</a></li>
-                        <li><a href="#">Ropa Mujer</a></li>
-                        <li><a href="#">Calzado</a></li>
+                        <li><a href="#">Ropa de Cama</a></li>
+                        <li><a href="#">Baño</a></li>
+                        <li><a href="#">Living/Comedor</a></li>
                         <li><a href="#">Accesorios</a></li>
                         <li><a href="#">Novedades</a></li>
                     </ul>
@@ -1333,7 +1373,7 @@
                 
             </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Calu Home. Todos los derechos reservados. </p>
+            <p>&copy; 2025 Calu Home. Todos los derechos reservados. </p>
 			<p>Creado con ❤️ por Lu y Caro.</p>
         </div>
     </footer>
@@ -1344,12 +1384,12 @@
         // ============================================
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('nav_menu');
-		const overlay = document.getElementById('overlay');		
+		<!-- const overlay = document.getElementById('overlay');		 -->
         
         navToggle.addEventListener('click', () => {
             navToggle.classList.toggle('active');
             navMenu.classList.toggle('active');
-			overlay.classList.toggle('active'); 
+			<!-- overlay.classList.toggle('active');  -->
         });
         // Menu Mobile
 			<!-- add_remove_Active(overlay, 'active'); -->
@@ -1360,15 +1400,17 @@
 
         // Cerrar menú al hacer click en un link
         navMenu.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
+            if (e.target.tagName === 'a') {
 				console.log("A"+e.target.tagName);
 				 navMenu.classList.remove('active');
-            overlay.classList.remove('active');
+            <!-- overlay.classList.remove('active'); -->
 				<!-- add_remove_Active(navMenu, 'active') -->
 				  <!-- navMenu.classList.remove('active'); -->
-				  
-			  add_remove_Active(overlay, 'active');
+				   navToggle.classList.remove('active');
+			  <!-- add_remove_Active(overlay, 'active'); -->
             }
+			 navMenu.classList.remove('active');
+			 navToggle.classList.remove('active');
 			 <!-- navMenu.classList.remove('active'); -->
 			 <!-- add_remove_Active(overlay, 'active'); -->
         });
@@ -1378,7 +1420,7 @@
             link.addEventListener('click', () => {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
-				overlay.classList.remove('active'); 
+				<!-- overlay.classList.remove('active');  -->
             });
         });		
 		 
@@ -1386,10 +1428,10 @@
 			navMenu.classList.remove('active');
 		});
 		
-		overlay.addEventListener('click', function() {
-			console.log(overlay.className);
-		   overlay.classList.remove('active');
-		 });
+		<!-- overlay.addEventListener('click', function() { -->
+			<!-- console.log(overlay.className); -->
+		   <!-- overlay.classList.remove('active'); -->
+		 <!-- }); -->
 
 
 
